@@ -12,10 +12,6 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="./index.css" />
     <title>Frontend Mentor | Advice generator app</title>
 
@@ -56,49 +52,7 @@
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
       >. Coded by <a href="#">Mathbkj</a>.
+      <script src="./index.js" defer></script>
     </div>
-
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const divider = document.getElementById("divider");
-        const btn = document.getElementById("dice");
-        let interval;
-        
-        switch (window.matchMedia("(max-width:767px)").matches) {
-          case true:
-            divider.innerHTML = `<img src="./assets/pattern-divider-mobile.svg" alt="divider-mobile.svg" />`;
-            break;
-          default:
-            divider.innerHTML = `<img src="./assets/pattern-divider-desktop.svg" alt="divider-desktop.svg" />`;
-            break;
-        }
-
-        btn.addEventListener("click", function (ev) {
-          fetchAdvice();
-          function fetchAdvice() {
-            if (interval) {
-              clearInterval(interval);
-            }
-            const response = fetch("https://api.adviceslip.com/advice");
-            response
-              .then((res) => res.json())
-              .then((data) => {
-                const title = document.getElementById("advice_title");
-                const content = document.getElementById("advice_content");
-                content.textContent = data.slip.advice;
-                title.textContent = `ADVICE #${data.slip.id}`;
-                btn.disabled = true;
-                interval = setInterval(() => {
-                  btn.disabled = false;
-                }, 1000);
-              })
-              .catch((error) => {
-                console.error("Error fetching advice:", error);
-                return;
-              });
-          }
-        });
-      });
-    </script>
   </body>
 </html>

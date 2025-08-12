@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 :root {
   font-size: 4px;
   --blue-200: hsl(193, 38%, 86%);
@@ -88,6 +89,8 @@ body {
   transition: 0.3s ease;
 
   img {
+    object-fit: contain;
+    object-position: center;
     transform-origin: center;
     transition: transform 0.3s ease;
   }
@@ -106,10 +109,6 @@ body {
     cursor: not-allowed !important;
     opacity: 0.5;
   }
-}
-.container > #dice img {
-  object-fit: contain;
-  object-position: bottom;
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .container {

@@ -1,0 +1,123 @@
+:root {
+  font-size: 4px;
+  --blue-200: hsl(193, 38%, 86%);
+  --green-300: hsl(150, 100%, 66%);
+  --blue-600: hsl(217, 19%, 38%);
+  --blue-900: hsl(217, 19%, 24%);
+  --blue-950: hsl(218, 23%, 16%);
+  --xl: 28px;
+  --md: calc(var(--xl) / 2);
+  --st: calc(var(--xl) / 3);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  overflow: hidden;
+}
+
+body {
+  scrollbar-color: var(--blue-600) transparent;
+  position: relative;
+  min-height: 90vh;
+  font-size: var(--xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blue-950);
+}
+.container {
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: var(--xl);
+  overflow: visible !important;
+  position: relative;
+  width: 500px;
+  height: 250px;
+  background-color: var(--blue-900);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 4rem;
+  gap: var(--st);
+  border-radius: var(--st);
+}
+.container span {
+  color: var(--green-300);
+  font-size: var(--st);
+  text-transform: uppercase;
+}
+.container q {
+  overflow-y: visible;
+  max-height: 25rem;
+  color: var(--blue-200);
+  font-size: var(--xl);
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 5%;
+  margin-bottom: 1.3%;
+  padding: 0;
+}
+.container > div#divider {
+  position: absolute;
+  font-size: var(--st);
+  bottom: 3.4rem;
+  transform: translateY(-8rem);
+  width: 80%;
+}
+.container > #divider img {
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.container > button#dice {
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+  position: absolute;
+  font-size: var(--st);
+  bottom: 0;
+  transform: translateY(20px);
+  background-color: var(--green-300);
+  border-radius: 100%;
+  cursor: pointer;
+  transform: rotate(0deg) translateY(18px);
+  transition: 0.3s ease;
+
+  img {
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover:not(:disabled) {
+    box-shadow: 1px 1px 20px var(--green-300);
+    img {
+      transform: rotate(40deg);
+      transition: transform 0.3s ease;
+    }
+  }
+  &:active:not(:disabled) {
+    box-shadow: 1px 1px 20px var(--green-300);
+  }
+  &:disabled {
+    cursor: not-allowed !important;
+    opacity: 0.5;
+  }
+}
+.container > #dice img {
+  object-fit: contain;
+  object-position: bottom;
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    width: 300px;
+  }
+}
